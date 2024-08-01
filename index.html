@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- login form / project name, store names -->
     <form id="login-form" class="hidden">
       <input
         required
@@ -16,20 +17,26 @@
       />
       <button>log in</button>
     </form>
+    <!-- ch clock position -->
     <h2 id="clock">00:00:00</h2>
+    <!-- ch greeting position -->
     <h1 id="greeting" class="hidden"></h1>
+    <!-- ch todo_list position -->
     <form id="todo-form">
       <input type="text" placeholder="write a to do and press enter" required />
     </form>
     <ul id="todo-list"></ul>
+    <!-- ch quote position -->
     <div id="quote">
       <span></span>
       <span></span>
     </div>
-    <div>
+    <!-- ch weather position -->
+    <div id="weather">
       <span></span>
       <span></span>
     </div>
+
     <script src="js/app.js"></script>
     <script src="js/greetings.js"></script>
     <script src="js/clock.js"></script>
@@ -39,5 +46,3 @@
     <script src="js/weather.js"></script>
   </body>
 </html>
-
-project name input값으로 받고 이전에 생성했던 proj name list를 최우선 순위로
