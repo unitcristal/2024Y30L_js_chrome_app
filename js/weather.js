@@ -1,6 +1,7 @@
 // import API_KEY from "./config.js";
 
 const API_KEY = "44efc639b73e18591d0a418f623fd702";
+
 function success(position) {
   console.log("please response");
   const crd = position.coords;
@@ -10,8 +11,8 @@ function success(position) {
   console.log("lon : ", lon);
   // console.log("lat : ", lat);
   // console.log("lon : ", lon);
-  // const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
-  // console.log(url);
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+  console.log(url);
   // fetch(url)
   //   .then((response) => response.json())
   //   .then((data) => {
