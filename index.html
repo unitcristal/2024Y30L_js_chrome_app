@@ -4,19 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Momentum App</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- login form / project name, store names -->
-    <form id="login-form" class="hidden">
-      <input
-        required
-        maxlength="15"
-        type="text"
-        placeholder="write project..."
-      />
-      <button>log in</button>
-    </form>
+    <div class="id_container">
+      <form id="login-form" class="hidden">
+        <input
+          required
+          maxlength="15"
+          type="text"
+          placeholder="write project..."
+        />
+        <button>log in</button>
+      </form>
+    </div>
+
     <!-- ch clock position -->
     <!-- 좌측 상단 -->
     <h2 id="clock">00:00:00</h2>
@@ -47,5 +50,6 @@
     <script src="js/background.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
+    <script src="test.js"></script>
   </body>
 </html>
