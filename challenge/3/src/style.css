@@ -1,0 +1,20 @@
+.hidden {
+  display: none;
+}
+form#event_form div:first-child {
+  font-size: larger;
+  font-weight: bold;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+#event_form div:last-child {
+  padding-top: 20px;
+}
+#event_result span {
+  display: block;
+}
+#event_result span:last-child {
+  font-weight: bold;
+}

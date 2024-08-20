@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vanilla Challenge</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div>
+      <h1>Random Number Game</h1>
+    </div>
+    <div>
+      <form id="event_form">
+        <div>
+          <span>Generate a number between 0 and</span>
+          <input type="number" required />
+        </div>
+        <div>
+          <span>Guess the number:</span>
+          <input type="number" required />
+          <input type="submit" value="Play!" />
+        </div>
+      </form>
+    </div>
+    <div id="event_result" class="hidden">
+      <!-- <span>You chose</span> -->
+      <span></span>
+      <span></span>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
+<!-- 첫번째 인풋이 두번째 인풋보다 크거나 같다는 조건 추가 -->
