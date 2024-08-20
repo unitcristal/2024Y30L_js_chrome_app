@@ -1,6 +1,4 @@
-// const set = document.querySelector("#event_set");
 const form = document.querySelector("#event_form");
-// const event_input = document.querySelector("#event_form input");
 const result = document.querySelector("#event_result");
 const first_input = document.querySelector("#event_form div:first-child input");
 const second_input = document.querySelector("#event_form div:last-child input");
@@ -13,10 +11,7 @@ const result_second_span = document.querySelector(
 
 function on_submit(event) {
   event.preventDefault();
-  //   const number_game = event_input.value;
 
-  //   console.log(first.value);
-  //   console.log(second.value);
   const first_value = parseInt(first_input.value);
   const second_value = parseInt(second_input.value);
   const random_value = Math.floor(Math.random() * first_value) + 1;
