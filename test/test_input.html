@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Manager</title>
+    <style>
+      .project-list {
+        margin: 20px 0;
+      }
+      .project-list li {
+        cursor: pointer;
+        margin-bottom: 5px;
+      }
+      .todo-list {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Project Manager</h1>
+    <div>
+      <label for="project-input">Enter Project Name:</label>
+      <input type="text" id="project-input" />
+      <button onclick="addProject()">Add Project</button>
+    </div>
+
+    <h2>Projects</h2>
+    <ul id="project-list" class="project-list"></ul>
+
+    <div id="project-todo" style="display: none">
+      <h2 id="project-title">Project:</h2>
+      <div>
+        <label for="todo-input">Add To-Do:</label>
+        <input type="text" id="todo-input" />
+        <button onclick="addTodo()">Add To-Do</button>
+      </div>
+      <ul id="todo-list" class="todo-list"></ul>
+    </div>
+
+    <script>
+      const projects = JSON.parse(localStorage.getItem("projects")) || {};
+
+      function saveProjects() {
+        localStorage.setItem("projects", JSON.stringify(projects));
+      }
+
+      function addProject() {
+        const projectName = document
+          .getElementById("project-input")
+          .value.trim();
+        if (projectName && !projects[projectName]) {
+          projects[projectName] = [];
+          document.getElementById("project-input").value = "";
+          renderProjectList();
+          saveProjects();
+        }
+      }
+
+      function renderProjectList() {
+        const projectList = document.getElementById("project-list");
+        projectList.innerHTML = "";
+        Object.keys(projects).forEach((projectName) => {
+          const li = document.createElement("li");
+          li.textContent = projectName;
+          li.onclick = () => openProject(projectName);
+          projectList.appendChild(li);
+        });
+      }
+
+      function openProject(projectName) {
+        document.getElementById(
+          "project-title"
+        ).textContent = `Project: ${projectName}`;
+        document.getElementById("project-todo").style.display = "block";
+        renderTodoList(projectName);
+      }
+
+      function renderTodoList(projectName) {
+        const todoList = document.getElementById("todo-list");
+        todoList.innerHTML = "";
+        projects[projectName].forEach((todo) => {
+          const li = document.createElement("li");
+          li.textContent = todo;
+          todoList.appendChild(li);
+        });
+      }
+
+      function addTodo() {
+        const projectName = document
+          .getElementById("project-title")
+          .textContent.replace("Project: ", "");
+        const todoInput = document.getElementById("todo-input");
+        const todo = todoInput.value.trim();
+        if (todo) {
+          projects[projectName].push(todo);
+          todoInput.value = "";
+          renderTodoList(projectName);
+          saveProjects();
+        }
+      }
+
+      // Initialize project list on page load
+      renderProjectList();
+    </script>
+  </body>
+</html>

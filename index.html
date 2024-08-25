@@ -7,58 +7,62 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- login form / project name, store names -->
-    <div class="id_container">
-      <form id="login-form" class="hidden">
-        <input
-          required
-          maxlength="15"
-          type="text"
-          placeholder="write project..."
-        />
-        <button>log in</button>
-      </form>
-    </div>
+    <div class="container">
+      <div class="top">
+        <div class="top_left">
+          <h2 id="clock"></h2>
+        </div>
 
-    <!-- ch clock position -->
-    <!-- 좌측 상단 -->
-    <h2 id="clock">00:00:00</h2>
-    <!-- ch greeting position -->
-    <!-- 중앙 상단 ? -->
-    <h1 id="greeting" class="hidden"></h1>
-    <!-- ch todo_list position -->
-    <form id="todo-form">
-      <input type="text" placeholder="write a to do and press enter" required />
-    </form>
-    <ul id="todo-list"></ul>
-    <!-- ch quote position -->
-    <div id="quote">
-      <span></span>
-      <span></span>
-    </div>
-    <!-- ch weather position -->
-    <!-- 우측 상단 -->
-    <div id="weather">
-      <span></span>
-      <span></span>
-    </div>
+        <div class="top_middle">
+          <form id="project_form">
+            <input
+              id="project_input"
+              required
+              maxlength="15"
+              type="text"
+              placeholder="write project..."
+            />
+            <button type="submit">set project</button>
+          </form>
+        </div>
 
-    <div id="test">
-      <h1>Geolocation Example</h1>
-      <button onclick="console.log('Button clicked'); getLocation();">
-        Get Location
-      </button>
-      <p id="status"></p>
-      <p id="location"></p>
+        <div id="weather" class="top_right">
+          <div>
+            <button id="get_location">get location</button>
+          </div>
+          <p class="weather_status"></p>
+          <p class="weather_location"></p>
+        </div>
+      </div>
+
+      <div class="middle">
+        <div id="todo_list">
+          <h1 id="greeting" class="hidden"></h1>
+          <form id="todo_form">
+            <input
+              type="text"
+              placeholder="write a to do and press enter"
+              required
+            />
+          </form>
+          <ul id="todo_list"></ul>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div id="quote">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </div>
 
     <script src="js/app.js"></script>
     <script src="js/greetings.js"></script>
     <script src="js/clock.js"></script>
-    <script src="js/quotes.js"></script>
+    <script src="js/quotes2.js"></script>
     <script src="js/background.js"></script>
     <script src="js/todo.js"></script>
-    <script type="module" src="js/weather.js"></script>
-    <script src="test.js"></script>
+    <script src="js/weather.js"></script>
   </body>
 </html>

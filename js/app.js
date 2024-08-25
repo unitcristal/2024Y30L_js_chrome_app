@@ -1,27 +1,31 @@
-const loginForm = document.querySelector("#login-form");
-const loginInput = document.querySelector("#login-form input");
+// get project name
+const form = document.querySelector("#project_form");
+const input = document.querySelector("#project_form input");
+// which project is focused
 const greeting = document.querySelector("#greeting");
-
 const HIDDEN_CLASSNAME = "hidden";
-const USERNAME_KEY = "username";
+// local storage contains {key, value} set
+const PROJECTS_KEY = "projects";
 
-function onLoginSubmit(event) {
-  event.preventDefault();
-  loginForm.classList.add(HIDDEN_CLASSNAME);
-  const typedUsername = loginInput.value;
-  localStorage.setItem(USERNAME_KEY, typedUsername);
-  paintGreetings(typedUsername);
+function onLoginSubmit(e) {
+  e.preventDefault();
+  const typed = input.value;
+  localStorage.setItem(PROJECTS_KEY, typed);
+  paintGreetings(typed);
+  input.value = "";
 }
-function paintGreetings(username) {
-  greeting.innerText = `hello ${username}`;
+
+function paintGreetings(name) {
+  greeting.innerText = `Project: ${name}`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
-const savedUsername = localStorage.getItem(USERNAME_KEY);
+const saved_project = localStorage.getItem(PROJECTS_KEY);
 
-if (savedUsername === null) {
-  loginForm.classList.remove(HIDDEN_CLASSNAME);
-  loginForm.addEventListener("submit", onLoginSubmit);
+if (saved_project === null) {
+  form.addEventListener("submit", onLoginSubmit);
 } else {
-  paintGreetings(savedUsername);
+  paintGreetings(saved_project);
 }
+
+form.addEventListener("submit", onLoginSubmit);
