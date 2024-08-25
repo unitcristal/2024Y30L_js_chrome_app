@@ -2,3 +2,7 @@ DS.Store
 config.js
 ssl/
 
+test/
+test_gpt/
+img/
+challenge/
