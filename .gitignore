@@ -1,6 +1,9 @@
-DS.Store
+.DS_Store
 config.js
 ssl/
+.vscode/
+
+
 
 test/
 test_gpt/
